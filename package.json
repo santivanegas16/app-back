@@ -9,7 +9,8 @@
     "dev": "nodemon ./server.js",
     "users": "node ./models/data/users.js",
     "authors": "node ./models/data/authors.js",
-    "categories": "node ./models/data/categories"
+    "categories": "node ./models/data/categories.js",
+    "mangas": "node ./models/data/mangas.js"
   },
   "author": "",
   "license": "ISC",
