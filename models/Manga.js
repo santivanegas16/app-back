@@ -10,7 +10,7 @@ let schema = new Schema({
     },
     company_id: {
         type: Types.ObjectId,
-        ref: "users",
+        ref: "companies",
     },
     title: { type: String, required: true },
     cover_photo: { type: String, required: true },
