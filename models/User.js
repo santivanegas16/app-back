@@ -1,4 +1,3 @@
-import { timeStamp } from "console";
 import { Schema, model, Types} from "mongoose"
 
 let collection = "users"
