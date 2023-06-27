@@ -4,4 +4,4 @@ import Chapter from '../Chapter.js';
 
 let chapteres 
 
-Chapter.insertMany(chapteres) 
+Chapter.insertMany(chapters) 
