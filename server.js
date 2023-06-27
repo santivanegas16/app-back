@@ -7,7 +7,7 @@ import morgan from "morgan"
 
 const server = express(); // Creo servidor
 const PORT = process.env.PORT || 8080; // Defino puerto
-const ready = () => console.log("ready on: " + PORT); // Callback
+const ready = () => console.log("ready on " + PORT); // Callback
 
 //middlewares
 server.use(express.json()) //permite entradas y trabajar con formato json
