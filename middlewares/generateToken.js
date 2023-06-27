@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';         // npm install jsonwebtoken
 
 export default (req, res, next) => {
                             // objeto a convertir       clave secreta           expiracion del token

@@ -1,4 +1,4 @@
-import bcryptjs from 'bcryptjs';
+import bcryptjs from 'bcryptjs';            // npm i bcryptjs
 
 export default (req, res, next) => {
     const compare = bcryptjs.compareSync(req.body.password, req.user.password);     //compara las contraseñas y devuelte un booleano
