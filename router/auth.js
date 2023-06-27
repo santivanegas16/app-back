@@ -1,8 +1,21 @@
 import { Router } from "express";
+
+// Controllers
 import read from "../controllers/auth/read.js";
+import register from "../controllers/auth/register.js";
+import signin from "../controllers/auth/signin.js";
 
-let authRouter = Router()
+// Middlewares
+import accountNotExists from "../middlewares/accountNotExists.js";
+import isValidPassword from "../middlewares/isValidPassword.js";
+import generateToken from "../middlewares/generateToken.js";
+import accountExists from "../middlewares/accountExists.js";
+import createHash from "../middlewares/createHash.js";
 
-authRouter.get('/', read)
+let authRouter = Router();
 
-export default authRouter
+// authRouter.get('/signin', read);
+authRouter.post('/register', accountExists, createHash, register);
+authRouter.post('/signin', accountNotExists, isValidPassword, generateToken, signin);
+
+export default authRouter;
