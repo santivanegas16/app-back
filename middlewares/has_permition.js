@@ -1,11 +1,12 @@
 import Author from '../models/Author.js'
 import Company from '../models/Company.js'
 
+//se utiliza para verificar si el usuario es autor o empresa para poder crear, actualizar o eliminar un manga o capitulo.
 export default async(req,res,next) => {
 
-    let role = req.user.role
+    let user_role = req.user.role
 
-    if ( role===1 || role===2 ) {
+    if ( user_role===1 || user_role===2 ) {
         let author = await Author.findOne({ user_id:req.user._id })
         if (author) {
             req.body.author_id = author._id
@@ -20,6 +21,6 @@ export default async(req,res,next) => {
     return res.status(400).json({
         success:false,
         response:null,
-        message:'Not authorized'
+        message:'not allow'
     })
 }
