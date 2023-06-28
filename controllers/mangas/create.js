@@ -12,7 +12,6 @@ export default async(req,res)=> {
         return res.status(500).json({
             success: false,
             response: null,
-            harold: true,
             message: 'error'
         })
     }
