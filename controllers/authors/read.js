@@ -1,13 +1,6 @@
-// export default (req,res) => {
-//     return res.status(200).json({
-//         success: true,
-//         message: "authors"
-//     })
-// }
-
 import Author from "../../models/Author.js"
 
-export default async (req, res) => {
+export default async (req, res, next) => {
     try {
         let all = await Author.find()
         if (all) {
@@ -22,9 +15,6 @@ export default async (req, res) => {
             })
         }
     } catch (error) {
-        return res.status(500).json({
-            response: null,
-            message: 'error'
-        })
+        next(error)
     }
 }

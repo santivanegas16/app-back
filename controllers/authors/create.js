@@ -1,6 +1,6 @@
 import Author from "../../models/Author.js"
 
-export default async (req, res) => {
+export default async (req, res, next) => {
     try {
         let data = req.body
         let one = await Author.create(data)
@@ -10,10 +10,6 @@ export default async (req, res) => {
             message: 'created'
         })
     } catch (error) {
-        return res.status(500).json({
-            succes: false,
-            response: null,
-            message: 'not created'
-        })
+        next(error)
     }
 }
