@@ -17,8 +17,8 @@ import validator from "../middlewares/validator.js";
 import passport from "../middlewares/passport.js";
 
 // Schemas
-import signin_schema from "../Schemas/auth/signin.js";
-import register_schema from "../Schemas/auth/register.js";
+import signin_schema from "../schemas/auth/signin.js";
+import register_schema from "../schemas/auth/register.js";
 
 let authRouter = Router();
 

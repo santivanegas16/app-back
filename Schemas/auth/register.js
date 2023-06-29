@@ -16,13 +16,13 @@ const schema = joi.object({
             'string.min': 'Password is too short!!',
             'string.alphanum': 'Password must be alphanum!!'
         }),
-    phoyo: joi.string().min(10).uri()
+    photo: joi.string().min(10).uri()
         .messages({
             'any.required': 'Photo is required!',
             'string.base': 'Photo is required!',
             'string.empty': 'Photo is required!',
             'string.min': 'Photo is too short!',
-            'string.uri': 'Password must be an URL!'
+            'string.uri': 'Photo must be an URL!'
         })
 })
 
