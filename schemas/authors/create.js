@@ -8,7 +8,7 @@ const schema = joi.object({
         'string.min' : "Name must be at least 3 characters long",
         'string.max' : "Name must be a maximum of 20 characters"
     }),
-    last_name: joi.string().min(3).max(20).messages({
+    last_name: joi.string().empty("").min(3).max(20).messages({
         "string.base" : "Last name must be string",
         'string.min' : "Last name must be at least 3 characters long",
         'string.max' : "Last name must be a maximum of 20 characters"
@@ -23,7 +23,7 @@ const schema = joi.object({
         "string.empty" : "Country is required",
         "any.required" : "Country is required"
     }),
-    date: joi.date().min('now').messages({
+    date: joi.date().max('now').messages({
         "date.base" : "Must be a valid date",
         "date.min" : "Must be a minimum of the current date"
     }),
@@ -33,14 +33,6 @@ const schema = joi.object({
         "string.base" : "Photo must be an URL",
         "string.empty" : "Photo is required"
     }),
-    user_id: joi.objectId().required().messages({
-        "any.required" : "Required"
-    }),
-    active: joi.boolean().required().messages({
-        "any.required" : "Required",
-        "boolean.base" : "Must be boolean",
-        "boolean.empty" : "Required"
-    })
 })
 
 export default schema

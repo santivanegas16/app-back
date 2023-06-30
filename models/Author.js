@@ -13,7 +13,7 @@ let schema = new Schema({
         type: Types.ObjectId,   // tipo de dato especial de mongo que es un string con propiedades extensivas de objetos
         ref:"users",  // nombre de la collection con la que se tiene que relacionar
         required: true},
-    active:{ type: Boolean, required: true}
+    active:{ type: Boolean, default: true}
 },{
     timestamps: true
 })
