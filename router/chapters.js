@@ -7,6 +7,6 @@ import add_cover_photo from "../middlewares/add_cover_photo.js"
 let chaptersRouter = Router()
 
 chaptersRouter.get('/',read)
-chaptersRouter.post('/',next_order,add_cover_photo,create)
-
+chaptersRouter.post('/',add_cover_photo,create)
+chaptersRouter.get('/next', next_order)
 export default chaptersRouter
