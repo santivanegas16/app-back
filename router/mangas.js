@@ -10,7 +10,7 @@ import is_active from "../middlewares/is_active.js"
 
 let mangasRouter = Router()
 
-mangasRouter.post('/', passport.authenticate("jwt",{"session":false}), validator(schema_create),has_permition,is_active, create)
+mangasRouter.post('/', passport.authenticate("jwt",{"session":false}), validator(schema_create),has_permition, create)
 mangasRouter.get('/', read)
 
 export default mangasRouter
