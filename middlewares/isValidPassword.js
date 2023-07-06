@@ -5,5 +5,5 @@ export default (req, res, next) => {
         delete req.user.password;
         return next();
     }
-    return res.status(400).json({ success: false, message: ['Invalid credentials!'] });
+    return res.status(400).json({ response: false, messages: ['Invalid credentials!'] });
 }
