@@ -25,7 +25,7 @@ const schema = joi.object({
     }),
     date: joi.date().max('now').messages({
         "date.base" : "Must be a valid date",
-        "date.min" : "Must be a minimum of the current date"
+        "date.max" : "Must be a maximum of the current date"
     }),
     photo: joi.string().uri().required().messages({
         "any.required" : "Photo is required",
