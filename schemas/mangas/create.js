@@ -12,8 +12,6 @@ const schema = joi.object({
     }),
     category_id: joi.objectId().required().messages({
         "any.required" : "Category is required",
-        "string.base" : "Category must be string",
-        "string.empty" : "Category is required"
     }),
     cover_photo: joi.string().uri().required().messages({
         "string.base" : "Cover photo must be an URL",
