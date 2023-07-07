@@ -11,7 +11,7 @@ export default async (req, res, next) => {
             return res.status(500).json({
                 success: false,
                 response: null,
-                message: 'order already exists'
+                messages: ['order already exists']
 
             })
         } else {
@@ -19,7 +19,7 @@ export default async (req, res, next) => {
 
         }
     } catch (error) {
-        return next(error);
+        return next();
     }
 
 
