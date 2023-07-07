@@ -8,11 +8,11 @@ import passport from "passport";
 let companiesRouter = Router()
 
 companiesRouter.get('/',
-    //passport.authenticate("jwt",{"session":false}),
+    passport.authenticate("jwt",{"session":false}),
     read
 )
 companiesRouter.post('/',
-    //passport.authenticate("jwt",{"session":false}),
+    passport.authenticate("jwt",{"session":false}),
     validator(schema_create),
     create
 )
