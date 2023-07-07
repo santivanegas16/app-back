@@ -6,11 +6,11 @@ export default (req, res, next) => {
     if (author_active) {
         return next()
     }
-    if(company_active) {
+    if (company_active) {
         return next()
     }
     return res.status(400).json({
         response: null,
-        message: 'author or company does not active'
+        messages: ['author or company does not active']
     })
 }
