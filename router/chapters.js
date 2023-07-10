@@ -27,6 +27,7 @@ chaptersRouter.post('/',
 )
 
 chaptersRouter.get('/', read)
-chaptersRouter.post('/', add_cover_photo, create)
-chaptersRouter.get('/next', next_order)
+// chaptersRouter.post('/', add_cover_photo, create)
+// chaptersRouter.get('/next', next_order)
+
 export default chaptersRouter
