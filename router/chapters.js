@@ -15,17 +15,18 @@ import create_schema from "../schemas/chapter/create.js"
 let chaptersRouter = Router()
 
 chaptersRouter.post('/',
-    passport.authenticate('jwt',{ session:false }),
+    passport.authenticate('jwt', { session: false }),
     validator(create_schema),
     has_permition,
-   is_active,
+    is_active,
     is_property_of,
     add_cover_photo,
     exists_order,
     next_order,
-create)
+    create
+)
 
-chaptersRouter.get('/',read)
-chaptersRouter.post('/',add_cover_photo,create)
+chaptersRouter.get('/', read)
+chaptersRouter.post('/', add_cover_photo, create)
 chaptersRouter.get('/next', next_order)
 export default chaptersRouter
