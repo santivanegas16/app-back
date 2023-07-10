@@ -10,13 +10,13 @@ export default async (req, res, next) => {
         let author = await Author.findOne({ user_id: req.user._id })
         if (author) {
             req.body.author_id = author._id
-            req.author=author
+            req.author = author
             return next()
         }
         let company = await Company.findOne({ user_id: req.user._id })
         if (company) {
             req.body.company_id = company._id
-            req.company=company
+            req.company = company
             return next()
         }
     }
