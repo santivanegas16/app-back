@@ -5,7 +5,7 @@ let collection = "mangas"
 let schema = new Schema({
     author_id: {
         type: Types.ObjectId,
-        ref: "autors",
+        ref: "authors",
         required: true,
     },
     company_id: {
