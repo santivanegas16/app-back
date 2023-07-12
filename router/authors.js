@@ -21,7 +21,7 @@ DELETE
 //se modificó luego con los controladores
 authorsRouter.get('/', passport.authenticate("jwt",{"session":false}), read)
 authorsRouter.post('/', passport.authenticate("jwt",{"session":false}), validator(schema_create), create)
-authorsRouter.get('/',passport.authenticate("jwt",{"session":false}), has_permition, read_me)
+authorsRouter.get('/me',passport.authenticate("jwt",{"session":false}), has_permition, read_me)
 
 
 export default authorsRouter
