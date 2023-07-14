@@ -5,11 +5,13 @@ import validator from "../middlewares/validator.js";
 import schema_create from "../schemas/mangas/create.js";
 import passport from "../middlewares/passport.js";
 import has_permition from "../middlewares/has_permition.js";
-import is_active from "../middlewares/is_active.js";
+import is_active from "../middlewares/is_active.js"
+import read_news from "../controllers/mangas/read_news.js";
 
 const mangasRouter = Router()
 
 mangasRouter.post('/', passport.authenticate("jwt", { "session": false }), validator(schema_create), has_permition, is_active, create);
 mangasRouter.get('/', passport.authenticate('jwt', { 'session': false }), read);
+mangasRouter.get('/news', passport.authenticate("jwt",{"session":false}), has_permition, read_news)
 
 export default mangasRouter;
