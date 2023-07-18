@@ -26,7 +26,8 @@ chaptersRouter.post('/',
     create
 )
 
-chaptersRouter.get('/', read)
+chaptersRouter.get('/',passport.authenticate('jwt', { session: false }), // Proteger la ruta con Passport si se requiere autenticación 
+read)
 // chaptersRouter.post('/', add_cover_photo, create)
 // chaptersRouter.get('/next', next_order)
 
