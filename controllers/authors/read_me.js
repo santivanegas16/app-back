@@ -3,8 +3,8 @@ import Author from "../../models/Author.js"
 export default async (req, res, next) => {
     try {
         let all = await Author
-            .findOne({ user_id: req.user._id }, "-_id name last_name city country photo")
-            .populate("user_id", "email photo role -_id")
+            .findOne({ user_id: req.user._id }, "-_id")
+            .populate("user_id", "-_id -password")
         if (all) {
             return res.status(200).json({
                 success: true,
