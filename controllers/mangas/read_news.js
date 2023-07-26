@@ -7,7 +7,7 @@ export default async (req, res, next) => {
         if (all.length < 4) {
             return res.status(200).json({
                 success: true,
-                response: { mangas: all, logo: "www.google.com" },
+                response: { logo: "/img/logo.png" },
                 message: 'Mangas found!'
             })
         } else if (all.length >= 4 && all.length < 8) {       
