@@ -10,6 +10,7 @@ import is_active from "../middlewares/is_active.js"
 import is_property_of from "../middlewares/is_property_of.js";
 import exists_order from "../middlewares/exists_order.js";
 import create_schema from "../schemas/chapter/create.js"
+import read_one from "../controllers/chapters/read_one.js";
 
 
 let chaptersRouter = Router()
@@ -28,7 +29,7 @@ chaptersRouter.post('/',
 
 chaptersRouter.get('/',passport.authenticate('jwt', { session: false }), // Proteger la ruta con Passport si se requiere autenticación 
 read)
-// chaptersRouter.post('/', add_cover_photo, create)
-// chaptersRouter.get('/next', next_order)
+
+chaptersRouter.get('/:id', passport.authenticate('jwt', {session: false }), read_one);
 
 export default chaptersRouter
