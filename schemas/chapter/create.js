@@ -19,7 +19,7 @@ const schema = joi.object({
             'string.min': 'Page requires 10 characters!',
             'string.uri': 'Page must be a valid URL!'
         })),
-    manga_id: joi.required()//.objectId()
+    manga_id: joi.required()
 })
 
 export default schema
