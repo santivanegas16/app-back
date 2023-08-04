@@ -3,11 +3,11 @@
 This API was built for reading and creating manga and comics.
 
 ## MEMBERS:
-Santiago Vanegas Mejia
-Jannus Alejandro Largo Zafra
-Estefania Marin Vallejo
-Juan Mateo Lozano Betancur
-Diana Carolina Hernandez Abahonza
+- Santiago Vanegas Mejia
+- Jannus Alejandro Largo Zafra
+- Estefania Marin Vallejo
+- Juan Mateo Lozano Betancur
+- Diana Carolina Hernandez Abahonza
 
 ## NODE VERSION
 18.17.0 LTS
