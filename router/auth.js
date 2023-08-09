@@ -15,6 +15,9 @@ import accountExists from "../middlewares/accountExists.js";
 import createHash from "../middlewares/createHash.js";
 import validator from "../middlewares/validator.js";
 import passport from "../middlewares/passport.js";
+import update_role_1 from "../controllers/auth/update_role_1.js";
+import update_role_2 from "../controllers/auth/update_role_2.js";
+import isAdmin from "../middlewares/isAdmin.js"
 
 // Schemas
 import signin_schema from "../schemas/auth/signin.js";
@@ -26,6 +29,9 @@ authRouter.post('/signin', validator(signin_schema), accountNotExists, isValidPa
 authRouter.post('/token', passport.authenticate('jwt', { session: false }), generateToken, token);
 authRouter.post('/register', validator(register_schema), accountExists, createHash, register);
 authRouter.post('/signout', passport.authenticate('jwt', { session: false }), signout);
+authRouter.put('/role/author/:id',passport.authenticate('jwt', { session: false }),isAdmin,update_role_1)
+authRouter.put('/role/company/:id',passport.authenticate('jwt', { session: false }),isAdmin,update_role_2)
 authRouter.get('/', read);
+
 
 export default authRouter;
