@@ -14,13 +14,13 @@ export default async (req, res, next) => {
 
         const skip = pagination.page > 0 ? (pagination.page - 1) * pagination.limit : 0;
         const limit = pagination.limit > 0 ? pagination.limit : 4;
-        const allMangas = await Comment.countDocuments(queries);
+        const allComments = await Comment.countDocuments(queries);
         
-        const pages = Math.ceil(allMangas / pagination.limit);
+        const pages = Math.ceil(allComments / pagination.limit);
         const prev = pagination.page === 1 ? null : pagination.page - 1;
         const next = pagination.page === pages ? null : pagination.page + 1;
 
-        const comments = await Comment.find(queries).skip(skip).limit(limit).sort(ordering);
+        const comments = await Comment.find(queries, "description chapter_id user_id -_id").populate("user_id", "email photo -_id").skip(skip).limit(limit).sort(ordering);
         
         if (comments.length != 0) {
             return res.status(200).json({ response: { comments, prev, next, pages }, message: 'comments found!' })
