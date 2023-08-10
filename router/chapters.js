@@ -11,7 +11,7 @@ import is_property_of from "../middlewares/is_property_of.js";
 import exists_order from "../middlewares/exists_order.js";
 import create_schema from "../schemas/chapter/create.js"
 import read_one from "../controllers/chapters/read_one.js";
-
+import get_me from "../controllers/chapters/get_me.js";
 
 let chaptersRouter = Router()
 
@@ -31,5 +31,6 @@ chaptersRouter.get('/',passport.authenticate('jwt', { session: false }), // Prot
 read)
 
 chaptersRouter.get('/:id', passport.authenticate('jwt', {session: false }), read_one);
+chaptersRouter.get('/me', passport.authenticate('jwt', {session: false }), get_me);
 
 export default chaptersRouter
