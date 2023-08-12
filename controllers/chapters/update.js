@@ -6,23 +6,27 @@ export default async (req,res,next) => {
         
         // const id = req.params.id
 
-        const cHapter = await Chapter.findByIdAndUpdate( req.params.id, req.body,{new:true} )
+        
 
-        // const chapter = await Chapter.find({ manga_id: req.query.manga_id })
+        const one = await Chapter.findByIdAndUpdate( req.params.id, req.body,{new:true} )
 
-        if (cHapter) {
+        // const one = await Chapter.findOneAndUpdate(
+        //     { _id: req.params.id },
+        //     req.body
+        // )
+
+        if (one) {
             return res.status(200).json({
                 success: true,
-                response: cHapter,
+                response: one,
                 message: "Chapter found",
             })
-        } else{
-            return res.status(200).json({
-                success: false,
-                response: null,
-                message: "Chapter not found",
-            })
-        }
+        } 
+        return res.status(404).json({
+            success: false,
+            response: null,
+            message: "Chapter not found",
+        })
 
     } catch (error) {
         next(error)

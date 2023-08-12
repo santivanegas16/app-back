@@ -35,6 +35,6 @@ read)
 chaptersRouter.get('/me', passport.authenticate('jwt', {session: false }), has_permition, finds_id, get_me);
 
 chaptersRouter.get('/:id', passport.authenticate('jwt', {session: false }), read_one);
-chaptersRouter.put('/:id', passport.authenticate('jwt', {session: false }), has_permition, finds_id, is_active, is_property_of, update);
+chaptersRouter.put('/:id', passport.authenticate('jwt', {session: false }), has_permition, is_active, is_property_of,update);
 
 export default chaptersRouter
