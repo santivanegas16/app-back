@@ -1,16 +1,13 @@
-import Manga from "../../models/Manga.js";
-import Chapter from "../../models/Chapter.js"
-/* import Manga from "../../models/Manga";
+import Manga from '../../models/Manga.js';
 
-export default async function destroy (req,res,next){
+export default async function update( req, res, next){
     try {
-        let one= await Manga.findByIdAndDelete(req.params.id)
-        let chapters= await Chapter.deleteMany({manga_id: req.params.id})
+        let one= await Manga.findByIdAndUpdate(req.params.id, req.body, {new: true});
         if (one) {
             return res.satatus(200).json({
                 response: one,
                 success: true,
-                message: 'delete succesfully' 
+                message: 'update succesfully' 
             })
         }else{
             return res.status(404).json({
@@ -22,4 +19,4 @@ export default async function destroy (req,res,next){
     } catch (error) {
         next(error)
     }
-} */
+}
