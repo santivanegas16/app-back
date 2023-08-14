@@ -6,6 +6,8 @@ import validator from "../middlewares/validator.js";
 import schema_create from "../schemas/authors/create.js"
 import passport from "passport";
 import has_permition from "../middlewares/has_permition.js";
+import admin from "../controllers/authors/admin.js";
+import isAdmin from "../middlewares/isAdmin.js";
 
 
 let authorsRouter = Router()
@@ -22,6 +24,7 @@ DELETE
 authorsRouter.get('/', passport.authenticate("jwt",{"session":false}), read)
 authorsRouter.post('/', passport.authenticate("jwt",{"session":false}), validator(schema_create), create)
 authorsRouter.get('/me',passport.authenticate("jwt",{"session":false}), has_permition, read_me)
+authorsRouter.get('/admin',passport.authenticate("jwt",{"session":false}),isAdmin,admin)
 
 
 export default authorsRouter

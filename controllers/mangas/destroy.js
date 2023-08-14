@@ -1,5 +1,6 @@
 import Manga from "../../models/Manga.js";
 import Chapter from "../../models/Chapter.js"
+/* import Manga from "../../models/Manga";
 
 export default async function destroy (req,res,next){
     try {
@@ -21,4 +22,4 @@ export default async function destroy (req,res,next){
     } catch (error) {
         next(error)
     }
-}
+} */

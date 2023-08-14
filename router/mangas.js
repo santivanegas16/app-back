@@ -21,6 +21,8 @@ mangasRouter.post('/', passport.authenticate("jwt", { "session": false }), valid
 mangasRouter.get('/', passport.authenticate('jwt', { 'session': false }), read);
 mangasRouter.get('/news', passport.authenticate("jwt",{"session":false}), has_permition, read_news)
 mangasRouter.get('/:id', passport.authenticate("jwt",{"session":false}), read_one )
+// mangasRouter.get('/me',passport.authenticate('jwt',{session:false}),has_permition,read_me)
+// mangasRouter.delete('/:id')
 
 // mangasRouter.delete('/:id')
 
