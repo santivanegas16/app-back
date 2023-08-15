@@ -1,10 +1,11 @@
 import Manga from '../../models/Manga.js';
 
-export default async function update( req, res, next){
+export default async ( req, res, next)=>{
     try {
         let one= await Manga.findByIdAndUpdate(req.params.id, req.body, {new: true});
+        
         if (one) {
-            return res.satatus(200).json({
+            return res.status(200).json({ 
                 response: one,
                 success: true,
                 message: 'update succesfully' 
