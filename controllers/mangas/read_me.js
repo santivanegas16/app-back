@@ -7,8 +7,6 @@ export default async (req, res, next) => {
         if (req.query.category) { queries.category_id = req.query.category.split(',') }
 
         let all = await Manga.find(queries, "title cover_photo description").populate("category_id", "name color hover -_id")
-        /*  let all = await Manga.find({author_id: req.body.author_id})
-  */
         if (all.length > 0) {
             return res.status(200).json({
                 response: all,

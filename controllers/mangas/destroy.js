@@ -1,7 +1,6 @@
 import Manga from "../../models/Manga.js";
 import Chapter from "../../models/Chapter.js"
 
-
 export default async function destroy (req,res,next){
     try {
         let one= await Manga.findByIdAndDelete(req.params.id)

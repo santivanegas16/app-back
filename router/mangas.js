@@ -23,4 +23,6 @@ mangasRouter.get('/news', passport.authenticate("jwt",{"session":false}), has_pe
 /* mangasRouter.get('/:id', passport.authenticate("jwt",{"session":false}), read_one ) */
 
 
+// mangasRouter.delete('/:id')
+
 export default mangasRouter;
