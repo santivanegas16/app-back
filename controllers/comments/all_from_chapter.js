@@ -20,7 +20,7 @@ export default async (req, res, next) => {
         const prev = pagination.page === 1 ? null : pagination.page - 1;
         const next = pagination.page === pages ? null : pagination.page + 1;
 
-        const comments = await Comment.find(queries, "description chapter_id user_id _id").populate("user_id", "email photo -_id").skip(skip).limit(limit).sort(ordering);
+        const comments = await Comment.find(queries, "description chapter_id user_id _id").populate("user_id", "email photo _id").skip(skip).limit(limit).sort(ordering);
         
         if (comments.length != 0) {
             return res.status(200).json({ response: { comments, prev, next, allComments}, message: 'comments found!' })
