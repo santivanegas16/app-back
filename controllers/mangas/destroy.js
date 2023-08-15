@@ -21,4 +21,4 @@ export default async function destroy (req,res,next){
     } catch (error) {
         next(error)
     }
-} 
+}
