@@ -6,7 +6,7 @@ export default async (req, res, next) => {
         const ordering = { title: 1 };
         const pagination = { page: 1, limit: 4 };
         
-        if (req.query.category) { queries.category_id = req.query.category.split(',') }
+        if (req.query.category) { queries.category_id = req.query.category.split(',')} 
         if (req.query.title) { queries.title = new RegExp(req.query.title.trim(), 'i') }
         if (req.query.sort) { ordering.title = Number(req.query.sort) }
         if (req.query.page) { pagination.page = Number(req.query.page) }
