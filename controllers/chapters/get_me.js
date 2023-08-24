@@ -6,7 +6,7 @@ export default async ( req, res, next ) => {
 
         const chapters = await Chapter.find({ manga_id: req.query.manga_id,  })
         
-        if ( chapters.length>0 ) {
+        if ( chapters ) {
             return res.status(200).json({
                 success: true,
                 response: chapters,
