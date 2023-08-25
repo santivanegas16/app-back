@@ -8,14 +8,12 @@ export default async(req,res,next)=>{
         },{
             new:true
         })
-        let author = await Author.findOneAndUpdate({user_id:req.params.id},{
-            active:true
-        },{
-            new:true
-        })
+        let author = await Author.findOne({user_id:req.params.id})
+        author.active= !author.active
+        await author.save()
         if(one){return res.status(200).json({
             success: true,
-            response : {one,company},
+            response : author,
             message:"Role change"
         })
     }else{
