@@ -2,10 +2,11 @@ import Author from "../../models/Author.js"
 
 export default async (req, res, next) => {
     try {
-        let all = await Author.find()
-        if (all) {
+        let active_true = await Author.find({active:true})
+        let active_false = await Author.find({active:false})
+        if (active_true || active_false) {
             return res.status(200).json({
-                response: all,
+                response: {active_true,active_false},
                 message: 'authors found!'
             })
         } else {
