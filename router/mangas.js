@@ -15,8 +15,8 @@ import is_property_of from "../middlewares/is_property_of.js";
 const mangasRouter = Router()
 
 mangasRouter.get('/me',passport.authenticate('jwt',{session:false}),has_permition,read_me)
-mangasRouter.put('/:id',passport.authenticate('jwt',{session:false}),has_permition, is_active, is_property_of,  update)
-mangasRouter.delete('/:id', passport.authenticate('jwt',{session:false}, destroy))
+mangasRouter.put('/:id',passport.authenticate('jwt',{session:false}),has_permition, is_active, is_property_of,   update)
+mangasRouter.delete('/:id', passport.authenticate('jwt',{session:false}), has_permition, is_active, is_property_of, destroy)
 mangasRouter.post('/', passport.authenticate("jwt", { "session": false }), validator(schema_create), has_permition, is_active, create);
 mangasRouter.get('/', passport.authenticate('jwt', { 'session': false }), read);
 mangasRouter.get('/news', passport.authenticate("jwt",{"session":false}), has_permition, read_news)

@@ -3,7 +3,6 @@ import Company from '../models/Company.js'
 
 //se utiliza para verificar si el usuario es autor o empresa para poder crear, actualizar o eliminar un manga o capitulo.
 export default async (req, res, next) => {
-console.log(req.user);
     let user_role = req.user.role
 
     if (user_role === 1 || user_role === 2) {

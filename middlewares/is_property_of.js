@@ -11,14 +11,16 @@ export default async (req, res, next) => {
 			return next();
 		}
 		const chapter = await Chapter.findOne({ _id: req.params.id })
+		console.log(chapter)
 		if (chapter) {
 			const mangaChapter = await Manga.findOne({ _id: chapter.manga_id, author_id: req.author._id })
 			if (mangaChapter) {
 				return next()
 			}
 		}
-
+		
 		const manga_find = await Manga.findOne({ _id: req.params.id, author_id: req.author._id })
+		console.log(manga_find)
 		if (manga_find) {
 			return next()
 		}

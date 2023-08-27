@@ -1,12 +1,13 @@
 import Manga from "../../models/Manga.js";
 import Chapter from "../../models/Chapter.js"
 
-export default async function destroy (req,res,next){
+export default async (req,res,next)=>{
     try {
         let one= await Manga.findByIdAndDelete(req.params.id)
         let chapters= await Chapter.deleteMany({manga_id: req.params.id})
+        
         if (one) {
-            return res.satatus(200).json({
+            return res.status(200).json({
                 response: one,
                 success: true,
                 message: 'delete succesfully' 
