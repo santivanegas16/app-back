@@ -10,6 +10,7 @@ import Switch_manga_chapters from '../components/Switch_manga_chapters';
 import { Link as Anchor } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import mangasActions from '../store/actions/mangas'
+import Reaction from "../components/Reaction";
 
 const { saveMangaDetail } = mangasActions
 
@@ -71,8 +72,12 @@ export default function MangaDetail() {
 								<Category key={Manga?.category_id?.name} name={Manga?.category_id?.name} color={Manga?.category_id?.color} hover={Manga?.category_id?.hover} />
 								<h2 className='font-poppins font-medium text-xl text-[#9D9D9D]'>{Manga?.author_id?.name.charAt(0).toUpperCase()}{Manga?.author_id?.name.slice(1).toLowerCase()}</h2>
 							</div>
+							<div className="flex justify-center mt-2 ">
+							<Reaction/>
+							</div>
 							<div className="pt-5">
-								<img src={reactions} />
+								{/* <img src={reactions} /> */}
+								
 								<img className="pt-2" src={raiting} />
 							</div>
 						</div>
