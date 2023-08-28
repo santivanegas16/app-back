@@ -4,24 +4,24 @@ import axios from "axios";
 import header from "../header";
 
 export default function Reaction() {
-  const [likes, setLikes] = useState(0);
-  const [dislikes, setDislikes] = useState(0);
-  const [like, setLike] = useState(false);
-  const [dislike, setDislike] = useState(false);
-  console.log("hola");
-  const actionLike = () => {
-    let data = {
-      name: 'like',
-      manga_id: '64cdc6a20ead659473181fc1'
-    }
-    axios
-      .post(apiUrl + "reactions",data,header())
-      .then((res) => {
-        console.log(res);
-        setLikes(res.data.response);
-      })
-      .catch((err) => console.log(err));
-  }
+//   const [likes, setLikes] = useState(0);
+//   const [dislikes, setDislikes] = useState(0);
+//   const [like, setLike] = useState(false);
+//   const [dislike, setDislike] = useState(false);
+//   console.log("hola");
+//   const actionLike = () => {
+//     let data = {
+//       name: 'like',
+//       manga_id: '64cdc6a20ead659473181fc1'
+//     }
+//     axios
+//       .post(apiUrl + "reactions",data,header())
+//       .then((res) => {
+//         console.log(res);
+//         setLikes(res.data.response);
+//       })
+//       .catch((err) => console.log(err));
+//   }
 
   return (
     <>
