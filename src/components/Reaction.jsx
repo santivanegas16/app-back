@@ -8,7 +8,7 @@ export default function Reaction() {
   const [dislikes, setDislikes] = useState(0);
   const [like, setLike] = useState(false);
   const [dislike, setDislike] = useState(false);
-
+  console.log("hola");
   const actionLike = () => {
     let data = {
       name: 'like',
