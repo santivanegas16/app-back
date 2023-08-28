@@ -2,20 +2,22 @@ import Reaction from "../../models/Reaction.js";
 
 export default async (req, res, next) => {
     try {
-
-        const existReaction = await Reaction.findOne({
+        
+        const opposite_reaction = await Reaction.findOne({
             manga_id: req.body.manga_id,
-            user_id: req.user._id
+            user_id: req.user._id,
+            name: req.body.name
         })
-        if (existReaction) {
-            const reactionDelete = await Reaction.findOneAndDelete({
+        if (opposite_reaction) {
+            const destroy = await Reaction.findOneAndDelete({
                 manga_id: req.body.manga_id,
-                user_id: req.user._id
+                user_id: req.user._id,
+                name: req.body.name
             })
             return res.status(200).json({
-                success: true,
-                response: reactionDelete,
-                message: 'deleted'
+                success: false,
+                response: destroy,
+                message: 'Destroyed'
             })
         } else {
             req.body.user_id = req.user._id
