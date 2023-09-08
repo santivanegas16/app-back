@@ -16,6 +16,14 @@ const schema = joi.object({
             'string.min': 'Password is too short!!',
             'string.alphanum': 'Password must be alphanum!!'
         }),
+        confirmPassword: joi.string().required().min(8).alphanum()
+        .messages({
+            'any.required': 'Password is required!!',
+            'string.base': 'Password is required!!',
+            'string.empty': 'Password is required!!',
+            'string.min': 'Password is too short!!',
+            'string.alphanum': 'Password must be alphanum!!'
+        }),
     photo: joi.string().required().min(10).uri()
         .messages({
             'string.base': 'Photo is required!',
